@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Registro</title>
+</head>
+<body>
+    <main>
+        <h1>Registro de Usuario</h1>
+        <form action="#">
+            <fieldset>
+                <h4>Nombre De Usuario</h4>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <br>
+                <label for="apellido1">Apellido Paterno:</label>
+                <input type="text" id="apellido1" name="apellido1" required>
+                <br>
+                <label for="apellido2">Apellido Materno:</label>
+                <input type="text" id="apellido2" name="apellido2" required>
+            </fieldset>
+
+            <fieldset>
+                <h4>Correo Electrónico</h4>
+                <label for="email">Ingrese su Correo:</label>
+                <input type="email" id="email" name="email" required>
+            </fieldset>
+
+            <fieldset>
+                <h4>Contraseña</h4>
+                <label for="password">Cree una contraseña:</label>
+                <input 
+                    type="password" 
+                    id="password"
+                    name="password"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    title="La contraseña debe tener al menos 8 caracteres y contener al menos una letra mayúscula, una letra minúscula y un número"
+                    required
+                >
+                <br>
+                <label for="password2">Confirme su contraseña</label>
+                <input 
+                    type="password" 
+                    id="password2"
+                    name="password2"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    title="La contraseña debe ser igual a la ingresada anteriormente"
+                    required
+                >
+                
+            </fieldset>
+
+            <fieldset>
+                <h4>Residencia</h4>
+                <label for="pais">Selecciones su país de residencia:</label>
+                <select name="pais" id="pais" required>
+                    <option value="">Pais</option>
+                    <option value="1">Chile</option>
+                    <option value="2">Argentina</option>
+                    <option value="3">Brasil</option>
+                    <option value="4">Venezuela</option>
+                    <option value="5">Uruguay</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <h4>Fecha de Nacimiento</h4>
+                <label for="dia">Día:</label>
+                <select name="dia" id="dia" required>
+                    <option value=""> Seleccione dia</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
+
+                <label for="mes">Mes:</label>
+                <select name="mes" id="mes" required>
+                    <option value="">Seleccione mes</option>
+                    <option value="1">Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+
+                <label for="año">Año:</label>
+                <select name="año" id="año" required>
+                    <option value="">Seleccione año</option>
+                    <option value="2003">2003</option>
+                    <option value="2002">2002</option>
+                    <option value="2001">2001</option>
+                    <option value="2000">2000</option>
+                    <option value="1999">1999</option>
+                    <option value="1998">1998</option>
+                    <option value="1997">1997</option>
+                    <option value="1996">1996</option>
+                    <option value="1995">1995</option>
+                    <option value="1994">1994</option>
+                    <option value="1993">1993</option>
+                    <option value="1992">1992</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <h4>Género</h4>
+                    <input type="radio" id="masculino" name= "genero" value="masculino">
+                    <label for="masculino">Masculino</label>
+                    <input type="radio" id="femenino" name= "genero" value="femenino">
+                    <label for="femenino">Femenino</label>
+                    <input type="radio" id="otro" name= "genero" value="otro">
+                    <label for="otro">Otro</label>
+            </fieldset>
+
+            <fieldset>
+                <h4>Términos y Servicios</h4>
+                <input type="checkbox" id="terminos" name="terminos" required>
+                <label for="terminos">Declaro que he leido y acepto los terminos y condiciones de la página</label>
+            </fieldset>
+        </form>
+        
+    </main>
+    
+</body>
