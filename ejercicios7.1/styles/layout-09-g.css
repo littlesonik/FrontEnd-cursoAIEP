@@ -1,0 +1,32 @@
+body{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 15vh;
+  gap: 10px;
+  grid-template-areas: 
+  "h h h h h"
+  "n A A A A"
+  "n A A A A"
+  "a A A A A"
+  "a f f f f";
+}
+
+header{
+  grid-area: h; /* primero se identifica al contenedor con una etiqueta, se recomienda etiquetar a todos con la misma cantidad de caracteres*/
+}
+
+nav{
+  grid-area: n;
+}
+
+article{
+  grid-area: A;
+}
+
+aside{
+  grid-area: a;
+}
+
+footer{
+  grid-area: f;
+}
