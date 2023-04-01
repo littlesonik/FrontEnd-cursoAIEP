@@ -1,0 +1,23 @@
+body{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  text-align: center;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+nav{
+  grid-column: 2;
+  background-color: bisque;
+  border-radius: 10px;
+  border: solid 1px burlywood;
+}
+
+ul{
+  list-style: none;
+}
+
+li{
+  margin: 1em;
+
+}
