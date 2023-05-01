@@ -54,7 +54,19 @@ async function procesarPOST(req, res) {
 }
 
 async function procesarPUT(req, res) {
-  return {m: 'PUT'};
+  //Para editar una categoria
+  try {
+      const {nombre, descripcion, id} = req.body;
+      const categoria = {
+        nombre,
+        descripcion
+      }
+      const documento = await getColeccion().doc(id);
+      documento.update(categoria);
+      return categoria;
+  } catch (error) {
+      res.code(500).send({error: error.message});
+  }
 }
 
 async function procesarDELETE(req, res) {
