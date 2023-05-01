@@ -1,5 +1,5 @@
 const {app} = require('./firebase');
-const {getAuth, signInWithEmailAndPassword} = require('firebase/auth')
+const {getAuth, signInWithEmailAndPassword} = require('firebase/auth');
 
 module.exports = async (req, res) => {
   const {email, contrasena} = req.body;

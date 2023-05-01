@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-
 </head>
 <body>
   <h1>Ingreso</h1>
@@ -21,8 +20,8 @@
   </form>
 
   <script>
-    const form = document.querySelector("form");
-    form.addEventListener("submit", async (submitEvent) =>{
+    const formulario = document.querySelector("form");
+    formulario.addEventListener("submit", async (submitEvent) =>{
       submitEvent.preventDefault();
 
       const formElement = submitEvent.currentTarget;
@@ -30,11 +29,10 @@
 
       const email = formData.get("email");
       const contrasena = formData.get("contrasena");
-      
       const nuevoUsuario = {
         email,
         contrasena
-      }
+      };
 
       const baseUrl = "http://localhost:3000";
       const url = baseUrl + "/login";
@@ -71,7 +69,6 @@
         console.error( error.code );
         console.error( error.message );
       }
-
     });
   </script>
 </body>
