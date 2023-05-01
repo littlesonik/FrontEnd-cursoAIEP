@@ -25,31 +25,31 @@ function getColeccion(){
 
 async function procesarGET(req, res) {
   try {
-    const querySnapshot = await getColeccion().get();
-    const documentos = querySnapshot.docs.map( d => {
-      return d.data();
-    });
-    return documentos;
+      const querySnapshot = await getColeccion().get();
+      const documentos = querySnapshot.docs.map( d => {
+        return d.data();
+      });
+      return documentos;
   } catch (error) {
-    res.code(500).send({error: error.message});
+      res.code(500).send({error: error.message});
   }
 }
 
 async function procesarPOST(req, res) {
   try {
-    const {nombre, descripcion} = req.body;
-    const categoria = {
-      nombre,
-      descripcion
-    }
-    const documento = await getColeccion().doc(); //crea un documento vacio y autogenera un id
-    const id = documento.id;
-    documento.set(categoria);
-    // paso para tener el id dentro del mismo objeto JSON
-    categoria.id = id;
-    return categoria;
+      const {nombre, descripcion} = req.body;
+      const categoria = {
+        nombre,
+        descripcion
+      }
+      const documento = await getColeccion().doc(); //crea un documento vacio y autogenera un id
+      const id = documento.id;
+      documento.set(categoria);
+      // paso para tener el id dentro del mismo objeto JSON
+      categoria.id = id;
+      return categoria;
   } catch (error) {
-    res.code(500).send({error: error.message});
+      res.code(500).send({error: error.message});
   }
 }
 
@@ -58,5 +58,12 @@ async function procesarPUT(req, res) {
 }
 
 async function procesarDELETE(req, res) {
-  return {m: 'DELETE'};
+  try {
+      const id = req.query.id;
+      const docRef = await getColeccion().doc(id);
+      await docRef.delete();
+      return {borrado: true};
+  } catch (error) {
+      return {borrado: false, mensaje: error.message};
+  }
 }
