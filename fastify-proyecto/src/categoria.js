@@ -24,7 +24,15 @@ function getColeccion(){
 }
 
 async function procesarGET(req, res) {
-  return {m: 'GET'};
+  try {
+    const querySnapshot = await getColeccion().get();
+    const documentos = querySnapshot.docs.map( d => {
+      return d.data();
+    });
+    return documentos;
+  } catch (error) {
+    res.code(500).send({error: error.message});
+  }
 }
 
 async function procesarPOST(req, res) {
