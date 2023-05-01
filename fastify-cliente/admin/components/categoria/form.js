@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function CategoriaForm() {
+export default function CategoriaForm({categorias, setCategorias}) {
   
   const [nombre, setNombre] =           useState('');
   const [descripcion, setDescripcion] = useState('');
@@ -8,29 +8,34 @@ export default function CategoriaForm() {
   const procesarFormulario = async(eventoSubmit) => {
 
     try {
-      eventoSubmit.preventDefault();
-  
-      const categoria = {
-        nombre, descripcion
-      };
-  
-      const baseUrl = 'http://localhost:3000';
-      const url = baseUrl + '/categoria';
-  
-      const respuesta = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(categoria)
-      });
-      if (!respuesta.ok) throw new Error ("No se pudo cargar la categoria...");
-      
-      const categoriaGuardada = await respuesta.json();
-      console.dir(categoriaGuardada);
-      
+        eventoSubmit.preventDefault();
+    
+        const categoria = {
+          nombre, descripcion
+        };
+    
+        const baseUrl = 'http://localhost:3000';
+        const url = baseUrl + '/categoria';
+    
+        const respuesta = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(categoria)
+        });
+        if (!respuesta.ok) throw new Error ("No se pudo cargar la categoria...");
+        
+        const categoriaGuardada = await respuesta.json();
+        console.dir(categoriaGuardada);
+        
+        //actualiza la variable de estado
+        //que contiene las categorias que muestra la tabla
+        setCategorias(
+          [...categorias, categoriaGuardada]
+        );
     } catch (error) {
-      console.error( error );
+        console.error( error );
     }
   }
   return (
